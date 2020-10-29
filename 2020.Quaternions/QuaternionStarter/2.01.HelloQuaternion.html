@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello Quaternion</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="300" height="200">
+    Please use a browser that supports "canvas"
+    </canvas>
+
+	<p>
+  Please open the 'console'  (right-click-->Inspect-->console tab) <br>
+  to see printed quaternion results.
+  </p>
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-quat03.js"></script>
+    <script src="HelloQuaternion.js"></script>
+<! =========================================================================
+Learning Activity
+============================================================================
+1)  Look in the 'lib' directory.  There you'll find the library file 
+'cuon-matrix-quat03.js', an extended version of the book's rudimentary 
+vector/matrix library ('cuon-matrix.js').  This updated version includes 
+prototypes for quaternion objects, complete with supporting functions.   
+>
+<! 
+2) Explore the 'cuon-matrix-quat03.js' library.  In it you'll find objects 
+'Vector3', 'Vector4' and 'Matrix4', which each have member functions to help 
+you manipulate 3x1 vectors, 4x1 vectors and 4x4 matrices useful for 
+computer graphics work, as well as a 'Quaternion' object we will now explore
+for composing and interpolating rotations.  
+But first,try out some basic vector/vector operations.
+--Create two different Vector4 objects with nonzero elements.
+--Compute and print their lengths in the console window. 
+--Can any Vector4 member function compute that for you?  
+--Should you add a new member fcn?  
+--How can you normalize these vectors?
+--Can you compute a 'dotProduct()' for two Vector4 objects?  
+(Note that some of the code within other functions computes dot products); Wouldn't it be nice to have a Vector4 member function to do this?  
+Try to make one; did it work? test it...
+--Can you compute a 'crossProduct()' for two Vector4 objects? 
+Can you find a Vector4 member function to do this? Can you make one? Did it work?>
+
+>
+<!
+3) Make some simple quaternions for testing; compare your results to those 
+you create for same 3D axis+angles using this on-line quaternion calculator:
+     http://www.energid.com/resources/orientation-calculator/ 
+
+For example, create these quaternions:
+--q0: a LONG Quaternion (magnitude larger than 1) that rotates by +30 degrees around +X axis
+--q1: a SHORT Quaternion (magnitude less than 1) that rotates by -45 degrees around the +Z axis
+--q2: a Quaternion that rotates by +90 degrees around the (1,1,1) axis
+--'Normalize' each of these quaternions and print them on-screen.
+>
+<!
+4) Convert q0 and q1 to rotation matrices R0 and R1.
+   Do they agree with our online calculator?
+>
+<!
+5) Use Matrix4.concatenate() function (does 4x4 matrix multiply) to make two
+new matrices by multiplying R0 and R1:
+	[R01] = [R0][R1]  and 
+	[R10] = [R1][R0]
+>
+<!
+6) Similarly, use quaternion multiply function to make two new quaternions by
+multiplying q0 and q1:
+q01 = q0*q1 and q10 = q1*q0.
+--Convert q01 and q10 to rotation matrices;  
+   Do these match the online calculator's results?
+   Which quaternions (q10 or q10) yields a rotation matrix that matches R01? R10? Why?
+>
+    <script src="HelloQuaternion.js"></script>
+  </body>
+</html>

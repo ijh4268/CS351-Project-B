@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+		<title>Project B</title>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+  </head>
+	<!--	Create the HTML5 'canvas' element in which we will run WebGL
+	-->
+	<h1>CS351 - Project B</h1>
+	<h2>Instructions:</h2>
+	<p>
+		<ol>
+			<li>
+				Use the 'w', 'a', 's', and 'd' keys to move around the scene.
+			</li>
+			<li>
+				Use the arrow keys to adjust the viewing angle of the camera.
+			</li>
+			<li>
+				You can turn the 'reactor' (two torus' and a sphere) by clicking and dragging with your mouse.
+			</li>
+			<li>
+				Press the Run/Stop button to toggle the animation.
+			</li>
+			<li>
+				Use the "Spin <<" and "Spin >>" buttons to increase or decrease the rate of the animation.
+			</li>
+			<li>
+				Look inside the tunnel to see some cool rotating stars!
+			</li>
+		</ol>
+	</p>
+  <body onload="main()" onresize="drawResize()">
+    <canvas id="webgl" width="600" height="600">
+    Please use a browser that supports "canvas"
+    </canvas>
+	<p>
+	<!-- Make a 'div' element to hold changeable HTML made in our JavaScript file;
+		 (where? look inside main(), inside its 'tick()' function, where we
+		 display the 'current angle' value.
+	-->
+	<div id= ShapeName></div> 
+	<!-- Fill this HTML tag with JavaScript-generated text that names the shape displayed
+	To change shapes, users press the 'Next' button, which calls the 'nextShape()' function-->
+
+		<!--BUTTONS: commands below create HTML push-buttons with labels
+			Spin <<, runStop, and Spin >>.  
+		When users click the button, HTML calls JavaScript functions
+			"spinDown()", "runStop()" and "spinUp()"   -->
+      <button type="button" onclick="spinDown()">Spin << </button>
+	  	<button type="button" onclick="runStop()">Run/Stop</button>
+			<button type="button" onclick="spinUp()">Spin >> </button>
+		</p>
+		By Isaac Henry
+	<!--	Load in the JavaScript libraries supplied by our textbook 
+			(Matsuda et al., 2013 WebGL Programming Guide) that help us
+			with WebGL programming:
+	-->
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix-quat03.js"></script>
+	<!--	Finally, load in our own JavaScript program file.
+	-->
+    <script src="ProjectB.js"></script>
+  </body>
+</html>
